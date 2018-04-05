@@ -513,14 +513,15 @@ $(document).ready(function() {
 
   temp(0);
   function temp(month){
-    d3.csv("stolen_vehicle.csv", function(error, data) {
+    d3.csv("stolen.csv", function(error, data) {
       data.forEach(function(d) {
         d.X = +d.X;
         d.Y = +d.Y;
+        d.Date = d.Date.split("/")[0]
+        // console.log((d.Date));
       });
-
       svg1.selectAll("circle").remove();
-
+      console.log(data);
       // var defs = svg1.append("defs");
 
       // //Filter for the outside glow
